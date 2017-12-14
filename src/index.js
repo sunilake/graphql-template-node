@@ -6,7 +6,7 @@ const typeDefs = importSchema('./src/schema.graphql')
 const resolvers = {
   Query: {
     feed(parent, args, ctx, info) {
-      return ctx.db.query.posts({ filter: { isPublished: true } }, info)
+      return ctx.db.query.posts({ where: { isPublished: true } }, info)
     },
   },
   Mutation: {
