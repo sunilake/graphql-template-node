@@ -11,7 +11,11 @@ const resolvers = {
   },
   Mutation: {
     createDraft(parent, { title, text }, ctx, info) {
-      return ctx.db.mutation.createPost({ data: { title, text } }, info)
+      return ctx.db.mutation.createPost(
+        // TODO remove `isPublished` in favour of default value
+        { data: { title, text, isPublished: false } },
+        info,
+      )
     },
     publish(parent, { id }, ctx, info) {
       return ctx.db.mutation.updatePost(
@@ -31,8 +35,9 @@ const server = new GraphQLServer({
   context: req => ({
     ...req,
     db: new Graphcool({
-      schemaPath: './src/schemas/database.graphql',
-      endpoint: 'https://database-beta.graph.cool/api/graphql-template-node/dev',
+      schemaPath: './database/schema.graphql',
+      endpoint:
+        'https://database-beta.graph.cool/api/graphql-template-node/dev',
       secret: 'your-graphcool-secret',
     }),
   }),
