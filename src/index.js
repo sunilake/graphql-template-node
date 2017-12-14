@@ -32,7 +32,7 @@ const server = new GraphQLServer({
     ...req,
     db: new Graphcool({
       schemaPath: './src/schemas/database.graphql',
-      endpoint: 'https://database-beta.graph.cool/api/graphql-boilerplate/dev',
+      endpoint: 'https://database-beta.graph.cool/api/graphql-template-node/dev',
       secret: 'your-graphcool-secret',
     }),
   }),
