@@ -1,0 +1,8 @@
+service: graphql-boilerplate
+stages: 
+  default: dev
+  dev: shared-eu-west-1
+
+secret: your-graphcool-secret
+
+datamodel: database/datamodel.graphql
