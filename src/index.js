@@ -2,7 +2,7 @@ const { GraphQLServer } = require('graphql-yoga')
 const { importSchema } = require('graphql-import')
 const { Graphcool } = require('graphcool-binding')
 
-const typeDefs = importSchema('./src/schemas/app.graphql')
+const typeDefs = importSchema('./src/schema.graphql')
 const resolvers = {
   Query: {
     feed(parent, args, ctx, info) {

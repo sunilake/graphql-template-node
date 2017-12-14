@@ -1,7 +1,7 @@
 service: graphql-template-node
-stages: 
+stages:
   default: dev
-  dev: shared-eu-west-1
+  dev: shared-public-demo
 
 secret: your-graphcool-secret
 
